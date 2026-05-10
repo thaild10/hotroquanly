@@ -884,18 +884,8 @@ header{
     </div>
     <button class="btn-clear-all btnClearAll">Hủy bộ lọc + tìm kiếm</button>
 </div>
-    <div class="r-list" id="rList"><div class="r-item"><div class="r-index">1</div>
-      <div class="img-wrap"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'"></div>
-      <div class="r-content"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="r-name">Phở Gia Truyền Số 49</div><span class="badge b3">Rất ngon</span></div>
-        <div class="r-hours"><div class="hdot cl"></div><span style="color:var(--text-light)">Đã đóng · 05:30 - 10:30</span></div>
-        <div style="font-size:13px;color:var(--rose-dark);font-weight:700;margin-top:2px">📍 49 Bát Đàn, Hoàn Kiếm, Hà Nội</div>
-        <div style="font-size:13px;color:var(--text-mid);margin-top:2px">Phở bò Hà Nội thứ thiệt.</div></div></div><div class="r-item"><div class="r-index">2</div>
-      <div class="img-wrap"><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'"></div>
-      <div class="r-content"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="r-name">Kem Bơ Đà Lạt Thanh Thảo</div><span class="badge b3">Rất ngon</span></div>
-        <div class="r-hours"><div class="hdot cl"></div><span style="color:var(--text-light)">Đã đóng · 09:00 - 21:00</span></div>
-        <div style="font-size:13px;color:var(--rose-dark);font-weight:700;margin-top:2px">📍 45 Nguyễn Thị Minh Khai, Đà Lạt</div>
-        <div style="font-size:13px;color:var(--text-mid);margin-top:2px">Kem bơ béo ngậy.</div></div></div></div>
-    <div class="empty" id="rEmpty">Không tìm thấy quán ăn nào 😔</div>
+    <div class="r-list" id="rList"></div>
+    <div class="empty on" id="rEmpty">Đang tải dữ liệu...</div>
     <div class="pag-row" id="pagRow"></div>
 </div>
 
@@ -957,20 +947,8 @@ header{
     </div>
     <button class="btn-clear-all btnClearAll">Hủy bộ lọc + tìm kiếm</button>
 </div>
-    <div class="a-list" id="adminList"><div class="a-item"><div class="a-index">1</div>
-      <img class="a-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'">
-      <div class="a-info"><div class="a-name">Phở Gia Truyền Số 49</div><div class="a-meta">Hà Nội · <span class="badge b3">Rất ngon</span></div></div>
-      <div class="a-acts">
-        <button class="edit-btn btn-clean" onclick="window.app.edit(1)"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
-        <button class="del-btn btn-clean" onclick="window.app.del(1)"><svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
-      </div></div><div class="a-item"><div class="a-index">2</div>
-      <img class="a-img" src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'">
-      <div class="a-info"><div class="a-name">Kem Bơ Đà Lạt Thanh Thảo</div><div class="a-meta">Đà Lạt · <span class="badge b3">Rất ngon</span></div></div>
-      <div class="a-acts">
-        <button class="edit-btn btn-clean" onclick="window.app.edit(2)"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
-        <button class="del-btn btn-clean" onclick="window.app.del(2)"><svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
-      </div></div></div>
-    <div class="empty" id="rEmptyAdmin">Không tìm thấy quán ăn nào 😔</div>
+    <div class="a-list" id="adminList"></div>
+    <div class="empty on" id="rEmptyAdmin">Đang tải dữ liệu...</div>
     <div class="pag-row" id="pagRowAdmin"></div>
 </div>
 
@@ -1501,11 +1479,38 @@ const updateAuthUI=()=>{
 };
 
 const downloadApp = () => {
-  D.btnDownload.style.display = 'none';
-  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-  const b = new Blob([html], { type: 'text/html' }); const u = URL.createObjectURL(b);
-  const a = document.createElement('a'); a.href = u; a.download = 'to-lam-da.html';
-  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(u);
+  // Tránh “đóng gói” cả danh sách đang render vào file tải xuống (gây nhấp nháy khi người khác mở lần đầu).
+  const prev = {
+    btnDisplay: D.btnDownload.style.display,
+    rList: D.rList.innerHTML,
+    adminList: D.adminList.innerHTML,
+    rEmptyText: D.rEmpty.textContent,
+    rEmptyOn: D.rEmpty.classList.contains('on'),
+    rEmptyAdminText: D.rEmptyAdmin.textContent,
+    rEmptyAdminOn: D.rEmptyAdmin.classList.contains('on'),
+  };
+  try {
+    D.btnDownload.style.display = 'none';
+    D.rList.innerHTML = '';
+    D.adminList.innerHTML = '';
+    D.rEmpty.textContent = 'Đang tải dữ liệu...';
+    D.rEmpty.classList.add('on');
+    D.rEmptyAdmin.textContent = 'Đang tải dữ liệu...';
+    D.rEmptyAdmin.classList.add('on');
+
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const b = new Blob([html], { type: 'text/html' }); const u = URL.createObjectURL(b);
+    const a = document.createElement('a'); a.href = u; a.download = 'to-lam-da.html';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(u);
+  } finally {
+    D.btnDownload.style.display = prev.btnDisplay;
+    D.rList.innerHTML = prev.rList;
+    D.adminList.innerHTML = prev.adminList;
+    D.rEmpty.textContent = prev.rEmptyText;
+    prev.rEmptyOn ? D.rEmpty.classList.add('on') : D.rEmpty.classList.remove('on');
+    D.rEmptyAdmin.textContent = prev.rEmptyAdminText;
+    prev.rEmptyAdminOn ? D.rEmptyAdmin.classList.add('on') : D.rEmptyAdmin.classList.remove('on');
+  }
 };
 
 window.onload = () => {
