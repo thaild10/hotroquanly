@@ -1841,19 +1841,26 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         }
 
         // ===== ĐỌC: Firestore trước, fallback localStorage =====
+        let _isLoading = false;
         async function loadData() {
-            const username = localStorage.getItem(USER_KEY);
-            let data = null;
-            if (window._fsLoad && username) {
-                data = await window._fsLoad(username);
+            if (_isLoading) return; // chống chạy chồng
+            _isLoading = true;
+            try {
+                const username = localStorage.getItem(USER_KEY);
+                let data = null;
+                if (window._fsLoad && username) {
+                    data = await window._fsLoad(username);
+                }
+                if (!data) {
+                    try {
+                        const raw = localStorage.getItem(DATA_KEY);
+                        if (raw) data = JSON.parse(raw);
+                    } catch(e) {}
+                }
+                renderData(data);
+            } finally {
+                _isLoading = false;
             }
-            if (!data) {
-                try {
-                    const raw = localStorage.getItem(DATA_KEY);
-                    if (raw) data = JSON.parse(raw);
-                } catch(e) {}
-            }
-            renderData(data);
         }
 
         function buildCardHTML(d) {
@@ -1910,9 +1917,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     const hoTen = localStorage.getItem(USER_KEY);
                     const userLabel = document.getElementById('current-user-label');
                     if (userLabel && hoTen) userLabel.innerText = hoTen;
-                    loadData();
+                    await loadData();
                     initTruncation();
                     updateReminders();
+                    updateCardNumbers();
                 } else {
                     showLogin();
                 }
