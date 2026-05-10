@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="vi"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg4NWQ3NDljYzY2NDljMDMxOWY1YmJlYWYwMWU4ZmVjZDIyZjk1YzQiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwNzM3Nzk4NzM5MDUyNzUxNzEyOSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzY0MWQ1ZGQ3MjEwYzdjODJfcXVhbmFuLmh0bWwtMTQ0In0sImV4cCI6MTc3ODQ0NzM3NiwiaWF0IjoxNzc4NDQzNzc2LCJhbGciOiJSUzI1NiJ9.kq79z6LDyYsXHoALsIMEgaNGzN2Gr_MGc3j0UGDGNXNcuog5sgNtlGvrXDfyz3kc2bXQ7z61O8JplzXmNbxLD_8YPCVa6PTP71WWooDg24XZBtE087eKEr-bi61Crxca_i7pit-pzypVQ2GvhcILbT3A0_uieabANDSuDzA3UxVsxADChIV8FgA4gZ4ndi3dW1iS6wDiUaMZ4M_jgfcDsyM10CVLA320MFgh05Y0ENZzdHGP-3moDCkFkkUEZY3hc43myOkc6JrcP3kpA7gMGSEDCnpsbt16JSOu7lIGmE0m_lYETT9-jNhGEZnyFnkN5NZ3k-0_uNVyU8th8jMNnA","c_641d5dd7210c7c82_quanan.html-144")</script><script>(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){var d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);var c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{var a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){var b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{var c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){var c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{var c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){var c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);var e=yield c.blob();return new Promise((f,g)=>{var k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){var c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){var c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());try{let f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});var e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){var b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");let c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;var c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){var c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{var g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){let g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){var b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{let e=d?(new URL(b,d||void 0)).toString():b,f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){let [c,,e]=ia.exec(d)||[];if(!e)return"";if(e===b)return`src: ${c};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;var c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c,e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){var d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){var d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){var d=a.cssText,c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){var g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];var b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){var d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){let g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}var d=new Set;b(a);return d}function ua(a,b){return t(function*(){var d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){var d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){let c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield wa(a,b);e=yield B(e);var f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384));
+f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;let c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){var a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){var b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){var b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+})();</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.i=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.g=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.h="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image-preview","imageTransformModelName":"gemini-3-pro-image-preview-11-2025","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image"]})</script><script>(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>Tớ làm da</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FDF5F0; --rose:#D95F6A; --rose-dark:#B8404E;
+  --text:#2C1810; --text-mid:#6B3D3A; --text-light:#A07070;
+  --green:#4CAF70; --green-dark:#357A50;
+  --red:#E53E3E; --red-dark:#C53030; --red-pale:#FFF5F5;
+  --f:'Nunito',sans-serif; --fd:'Playfair Display',serif;
+  --shadow-card:0 8px 24px rgba(44,24,16,.06);
+  --border-soft:1px solid rgba(233,146,138,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:var(--f); background:var(--bg); color:var(--text); 
+  font-size:16px; line-height:1.6; display:flex; flex-direction:column; 
+  align-items:center; padding-bottom:100px; min-height:100vh;
+}
+
+/* View Containers */
+.view { width: 100%; display: none; flex-direction: column; align-items: center; animation: fadeIn 0.3s ease; }
+.view.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+header,main{width:100%; max-width:720px}
+
+/* HEADER */
+header{
+  position:sticky; top:0; z-index:100; 
+  background:rgba(253,245,240,0.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:var(--border-soft); padding:16px 20px; 
+  display:flex; align-items:center; justify-content:space-between;
+}
+.logo{font-family:var(--fd); font-size:26px; font-weight:700; font-style:italic; color:var(--rose-dark); letter-spacing:-0.02em}
+.header-actions { display:flex; gap:10px; align-items:center; }
+.icon-btn{
+  background:rgba(217,95,106,0.08); border:0; border-radius:14px; 
+  width:44px; height:44px; display:grid; place-items:center; cursor:pointer; color:var(--text);
+}
+
+#btnAdmin { 
+  display:none; background:var(--rose-dark); color:white; 
+  padding:0 16px; height:36px; border-radius:14px; 
+  font-size:13px; font-weight:800; border:0; cursor:pointer; 
+  align-items:center; justify-content:center; letter-spacing:0.03em;
+}
+#btnAdmin.on { display:flex; }
+
+/* SEARCH OVERLAY */
+.ov{position:fixed; inset:0; z-index:200; background:rgba(44,24,16,0.5); backdrop-filter:blur(8px); display:none}
+.ov.on{display:flex}
+.ov.search-ov{align-items:flex-start; justify-content:center; padding-top:40px}
+.search-box{
+  background:#fff; border-radius:24px; width:92%; max-width:420px; padding:20px; 
+  box-shadow:0 24px 64px rgba(44,24,16,0.3); display:flex; gap:12px; align-items:center;
+}
+.s-inp{
+  flex:1; border:1.5px solid rgba(233,146,138,0.2); border-radius:16px; 
+  padding:12px 18px; font:inherit; background:var(--bg); color:var(--text); outline:none; font-size:16px;
+}
+.s-inp:focus{border-color:var(--rose)}
+.x-btn{background:0; border:0; cursor:pointer; color:var(--text-mid); font-size:24px; padding:4px}
+
+/* LOGIN SCREEN */
+#login-view { position:fixed; inset:0; z-index:1000; background:#FFF5F5; flex-direction:column; align-items:center; justify-content:center; padding:20px; }
+.login-card { background:white; width:100%; max-width:400px; padding:48px 32px; border-radius:32px; box-shadow:0 24px 48px rgba(217,95,106,0.12); text-align:center; }
+.login-logo { font-family:var(--fd); font-size:32px; font-style:italic; color:var(--rose-dark); margin-bottom:12px; }
+.login-title { font-size:14px; font-weight:800; color:var(--text-light); letter-spacing:0.12em; margin-bottom:40px; text-transform:uppercase; }
+.login-field { text-align:left; margin-bottom:24px; }
+.login-label { display:block; font-size:12px; font-weight:800; color:var(--text-mid); margin-bottom:10px; padding-left:4px; text-transform:uppercase; }
+.login-input { 
+  width:100%; background:#FFF9F9; border:2px solid #FFE4E4; border-radius:18px; 
+  padding:16px 20px; font-family:var(--f); font-size:16px; outline:none; transition:0.2s; 
+}
+.login-input:focus { border-color:var(--rose); background:white; box-shadow:0 8px 24px rgba(217,95,106,0.06); }
+.btn-do-login { 
+  width:100%; background:linear-gradient(135deg, var(--rose), var(--rose-dark)); 
+  color:white; border:none; padding:18px; border-radius:18px; 
+  font-size:16px; font-weight:800; cursor:pointer; margin-top:10px; 
+  box-shadow:0 12px 28px rgba(217,95,106,0.2); transition:0.2s;
+}
+.btn-do-login:active { transform:scale(0.98); opacity:0.9; }
+.login-back { margin-top:28px; font-size:14px; font-weight:700; color:var(--text-light); cursor:pointer; background:none; border:none; }
+
+/* ADMIN VIEW */
+.admin-head { padding:24px 20px; display:flex; flex-direction:column; gap:16px; border-bottom:var(--border-soft); width:100%; }
+.admin-row { display:flex; justify-content:space-between; align-items:center; width:100%; gap: 10px; flex-wrap: wrap; }
+.admin-title { font-family:var(--fd); font-size:26px; font-weight:700; color:var(--rose-dark); }
+.admin-btns { display:flex; gap:8px; align-items: center; }
+.btn-add { 
+  background:var(--green); color:white; border:0; padding:10px 16px; border-radius:14px; 
+  font-weight:800; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:6px; height: 40px;
+}
+.btn-ratings { background:var(--text-mid); color:white; border:0; padding:10px 16px; border-radius:14px; font-weight:800; font-size:13px; cursor:pointer; height: 40px; }
+
+.a-list { padding:20px; display:flex; flex-direction:column; gap:16px; width:100%; max-width:720px; margin-top:16px; }
+.a-item { 
+  background:#fff; border-radius:24px; padding:16px; display:flex; gap:14px; 
+  align-items:center; box-shadow:var(--shadow-card); border:var(--border-soft);
+}
+.a-index { font-size:14px; font-weight:800; color:var(--text-light); width:28px; text-align:center; flex-shrink:0; }
+.a-img { width:64px; height:64px; border-radius:16px; object-fit:cover; background:#eee; flex-shrink:0; }
+.a-info { flex:1; min-width:0; }
+.a-name { font-weight:800; font-size:16px; color:var(--text); margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.a-meta { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.a-acts { display:flex; gap:8px; }
+.edit-btn, .del-btn { border:0; border-radius:12px; width:40px; height:40px; display:grid; place-items:center; cursor:pointer; }
+.edit-btn { background:rgba(76,175,112,0.1); color:var(--green-dark); }
+.del-btn { background:rgba(229,62,62,0.1); color:var(--red); }
+.del-btn svg, .edit-btn svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2.5; }
+
+/* MODAL / SHEET FORM */
+.sheet-ov { position:fixed; inset:0; z-index:1100; background:rgba(44,24,16,0.5); display:none; align-items:flex-end; justify-content:center; }
+.sheet-ov.on { display:flex; }
+.sheet { 
+  background:#fff; border-radius:32px 32px 0 0; width:100%; max-width:720px; 
+  padding:24px 20px 40px; max-height:92vh; overflow-y:auto; 
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.sheet-title { font-family:var(--fd); font-size:22px; font-weight:700; margin-bottom:24px; text-align:center }
+.fg { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+.fl { font-size:12px; font-weight:800; color:var(--text-mid); text-transform:uppercase; letter-spacing:.08em; padding-left:4px; }
+.fi { width:100%; border:1.5px solid rgba(233,146,138,0.15); border-radius:16px; padding:14px 18px; font:inherit; background:var(--bg); outline:none; font-size:16px; }
+.fi:focus { border-color:var(--rose); background:#fff; }
+
+.btn-upload { 
+  background:var(--bg); border:2px dashed rgba(217,95,106,0.3); color:var(--text-mid); 
+  padding:20px; border-radius:20px; font-weight:700; cursor:pointer; 
+  text-align:center; margin-top:8px; display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.upload-preview { width:80px; height:80px; object-fit:cover; border-radius:12px; display:none; }
+
+.sheet-btns { display:flex; gap:12px; margin-top:12px; }
+.btn-clean { border: none; outline: none; cursor: pointer; font-family: inherit; transition: 0.2s; }
+.btn-form-cancel {
+  flex: 0.4; background: #EDF2F7; color: var(--text-mid); padding: 16px; 
+  border-radius: 18px; font-size: 15px; font-weight: 700;
+}
+.btn-form-save {
+  flex: 1; background: var(--rose); color: white; padding: 16px; 
+  border-radius: 18px; font-size: 15px; font-weight: 800; 
+  box-shadow: 0 4px 12px rgba(217,95,106,0.2);
+}
+
+/* FILTER UI (SHARED) */
+.filter-section { width:100%; max-width:720px; padding:20px 20px 0; display:flex; flex-direction:column; gap:16px; }
+.fc{background:#fff; border-radius:24px; padding:18px; box-shadow:var(--shadow-card); border:var(--border-soft)}
+.fc-title{font-size:13px; font-weight:800; color:var(--text-mid); text-transform:uppercase; letter-spacing:.1em; margin-bottom:12px; display:block}
+.chips{display:flex; flex-wrap:wrap; gap:8px}
+.chip{
+  border-radius:14px; padding:10px 18px; font:600 14px var(--f); 
+  cursor:pointer; border:1.5px solid rgba(233,146,138,0.15); 
+  background:var(--bg); color:var(--text-mid); transition:0.2s;
+}
+.chip[aria-pressed="true"]{background:var(--rose); color:#fff; border-color:var(--rose); font-weight:800; box-shadow:0 4px 12px rgba(217,95,106,0.2)}
+
+.open-now-btn{
+  width:100%; background:linear-gradient(135deg, var(--green), var(--green-dark)); 
+  color:#fff; border:0; border-radius:18px; padding:16px; font:800 15px var(--f); 
+  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; 
+  box-shadow:0 8px 20px rgba(76,175,112,0.2); transition: 0.3s;
+}
+.open-now-btn.is-active {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  box-shadow: 0 8px 20px rgba(229,62,62,0.2);
+}
+
+.btn-clear-all {
+  width:100%; background:var(--red-pale); color: #FFB3B3; border:none; border-radius:18px; 
+  padding:16px; font:800 14px var(--f); cursor:pointer; transition: 0.3s;
+}
+.btn-clear-all.is-active {
+  background:var(--red); color:white; box-shadow:0 8px 20px rgba(229,62,62,0.2);
+}
+
+.on-banner{
+  background:rgba(76,175,112,0.1); border:1.5px solid rgba(76,175,112,0.2); 
+  border-radius:18px; padding:12px 18px; display:none; align-items:center; gap:10px; font-size:14px; font-weight:700; color:var(--green-dark)
+}
+.on-banner.on{display:flex}
+
+/* LIST ITEMS */
+.r-list { padding:20px; display:flex; flex-direction:column; gap:16px; width:100%; max-width:720px; margin-top:16px; }
+.r-item{
+  background:#fff; border-radius:28px; padding:14px; display:flex; gap:14px; 
+  align-items:center; box-shadow:var(--shadow-card); border:var(--border-soft);
+  transition: transform 0.2s ease; width: 100%;
+}
+.r-item:active { transform: scale(0.98); }
+.r-index { font-size:18px; font-weight:800; color:rgba(160,112,112,0.4); width:32px; text-align:center; flex-shrink:0; }
+.img-wrap{position:relative; flex-shrink:0; border-radius:20px; overflow:hidden; width:96px; height:96px; background:var(--bg)}
+.img-wrap img{width:100%; height:100%; object-fit:cover; display:block}
+.r-content{flex:1; display:flex; flex-direction:column; gap:4px; min-width:0}
+.r-name{font-size:17px; font-weight:800; color:var(--text); line-height:1.3; margin-bottom:2px}
+.badge{border-radius:10px; padding:4px 10px; font-size:11px; font-weight:800; white-space:nowrap; border:1.5px solid}
+.b0{background:#FFF0F0; color:#B8404E; border-color:#FFDADA}
+.b1{background:#FFF8EE; color:#8B5E2A; border-color:#FFECCD}
+.b2{background:#F0FBF4; color:#357A50; border-color:#D8F3E0}
+.b3{background:#E8F9EE; color:#2A7040; border-color:#C1EFD1}
+
+.r-hours{display:flex; align-items:center; gap:6px; font-size:13px; font-weight:700}
+.hdot{width:8px; height:8px; border-radius:50%}
+.hdot.op{background:var(--green)}.hdot.cl{background:var(--text-light); opacity:.5}
+
+/* PAGINATION */
+.pag-row{display:none; align-items:center; justify-content:center; gap:10px; padding:32px 0}
+.pag-row.on{display:flex}
+.pn{
+  width:44px; height:44px; border-radius:14px; display:grid; place-items:center; 
+  font:800 15px var(--f); cursor:pointer; border:1.5px solid rgba(233,146,138,0.15); 
+  background:#fff; color:var(--text-light); transition:0.2s
+}
+.pn[aria-current="page"]{background:var(--rose); color:#fff; border-color:var(--rose); box-shadow:0 4px 12px rgba(217,95,106,0.2)}
+
+/* BOTTOM NAV */
+.bnav{
+  position:fixed; bottom:0; left:0; right:0; 
+  background:rgba(253,245,240,0.94); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-top:var(--border-soft); padding:10px 0 calc(10px + env(safe-area-inset-bottom)); 
+  display:flex; justify-content:space-around; align-items:center; z-index:900;
+}
+.nb{
+  background:0; border:0; cursor:pointer; display:flex; flex-direction:column; 
+  align-items:center; gap:4px; color:var(--text-light); padding:8px 24px; transition:0.2s;
+}
+.nb.on{color:var(--rose)}
+.nb svg{width:26px; height:26px; fill:none; stroke:currentColor; stroke-width:2.2}
+.nb span{font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.02em}
+
+.empty{text-align:center; padding:64px 24px; color:var(--text-light); font-size:15px; display:none}
+.empty.on{display:block}
+
+/* CLEAN BUTTON STYLES FOR ADMIN */
+#btnBackAdmin {
+    background: #EDF2F7;
+    color: var(--text-mid);
+    padding: 10px 24px;
+    font-size: 14px;
+    border-radius: 14px;
+    font-weight: 700;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#btnSaveRatings {
+    width: 100%;
+    background: var(--rose);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 18px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(217,95,106,0.2);
+}
+
+.edit-rat-btn {
+    background: #F7FAFC;
+    color: var(--green-dark);
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- VIEW: HOME -->
+<div id="home-view" class="view active">
+    <header>
+        <div style="width:44px"></div>
+        <div class="logo">Tớ làm da</div>
+        <div class="header-actions">
+            <button id="btnAdmin" class="">Quản lý</button>
+            <button class="icon-btn" id="btnDownload" title="Tải file HTML" style="display: none;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+            <button class="icon-btn btnSearchTrigger">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="filter-section shared-filters">
+    <div class="fc">
+        <span class="fc-title">Thành phố</span>
+        <div class="chips cityChips">
+            <button class="chip" data-city="hanoi">Hà Nội</button>
+            <button class="chip" data-city="hcm">Hồ Chí Minh</button>
+            <button class="chip" data-city="hue">Huế</button>
+            <button class="chip" data-city="danang">Đà Nẵng</button>
+            <button class="chip" data-city="dalat">Đà Lạt</button>
+        </div>
+    </div>
+    <button class="open-now-btn btnOpenNow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        <span class="openNowText">Xem quán đang mở</span>
+    </button>
+    <div class="on-banner">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        Đang mở lúc <strong class="onTimeDisplay" style="margin-left:4px"></strong>
+    </div>
+    <button class="btn-clear-all btnClearAll">Hủy bộ lọc + tìm kiếm</button>
+</div>
+    <div class="r-list" id="rList"><div class="r-item"><div class="r-index">1</div>
+      <div class="img-wrap"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'"></div>
+      <div class="r-content"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="r-name">Phở Gia Truyền Số 49</div><span class="badge b3">Rất ngon</span></div>
+        <div class="r-hours"><div class="hdot cl"></div><span style="color:var(--text-light)">Đã đóng · 05:30 - 10:30</span></div>
+        <div style="font-size:13px;color:var(--rose-dark);font-weight:700;margin-top:2px">📍 49 Bát Đàn, Hoàn Kiếm, Hà Nội</div>
+        <div style="font-size:13px;color:var(--text-mid);margin-top:2px">Phở bò Hà Nội thứ thiệt.</div></div></div><div class="r-item"><div class="r-index">2</div>
+      <div class="img-wrap"><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'"></div>
+      <div class="r-content"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="r-name">Kem Bơ Đà Lạt Thanh Thảo</div><span class="badge b3">Rất ngon</span></div>
+        <div class="r-hours"><div class="hdot cl"></div><span style="color:var(--text-light)">Đã đóng · 09:00 - 21:00</span></div>
+        <div style="font-size:13px;color:var(--rose-dark);font-weight:700;margin-top:2px">📍 45 Nguyễn Thị Minh Khai, Đà Lạt</div>
+        <div style="font-size:13px;color:var(--text-mid);margin-top:2px">Kem bơ béo ngậy.</div></div></div></div>
+    <div class="empty" id="rEmpty">Không tìm thấy quán ăn nào 😔</div>
+    <div class="pag-row" id="pagRow"></div>
+</div>
+
+<!-- VIEW: LOGIN -->
+<div id="login-view" class="view">
+    <div class="login-card">
+        <div class="login-logo">Tớ làm da</div>
+        <div class="login-title">Đăng nhập Quản trị</div>
+        <div class="login-field">
+            <label class="login-label">Tên đăng nhập</label>
+            <input type="text" class="login-input" id="lUser" placeholder="admin" autocomplete="off">
+        </div>
+        <div class="login-field">
+            <label class="login-label">Mật khẩu</label>
+            <input type="password" class="login-input" id="lPass" placeholder="••••••••">
+        </div>
+        <div id="loginErr" class="err-msg" style="color:var(--red); font-size:13px; margin-bottom:20px; font-weight:700; display:none">Sai tài khoản hoặc mật khẩu ❌</div>
+        <button class="btn-do-login" id="btnDoLogin">ĐĂNG NHẬP</button>
+        <button class="login-back" id="btnBackHome">Quay lại trang chủ</button>
+    </div>
+</div>
+
+<!-- VIEW: ADMIN -->
+<div id="admin-view" class="view">
+    <header class="admin-head">
+        <div class="admin-row">
+            <div class="admin-title">Quản lý</div>
+            <div class="admin-btns">
+                <button class="btn-ratings" id="btnGoRatings">Quản lý đánh giá</button>
+                <button class="btn-add" id="btnAddRest">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Thêm quán
+                </button>
+                <button class="icon-btn btnSearchTrigger">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="filter-section shared-filters-admin">
+    <div class="fc">
+        <span class="fc-title">Thành phố</span>
+        <div class="chips cityChips">
+            <button class="chip" data-city="hanoi">Hà Nội</button>
+            <button class="chip" data-city="hcm">Hồ Chí Minh</button>
+            <button class="chip" data-city="hue">Huế</button>
+            <button class="chip" data-city="danang">Đà Nẵng</button>
+            <button class="chip" data-city="dalat">Đà Lạt</button>
+        </div>
+    </div>
+    <button class="open-now-btn btnOpenNow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        <span class="openNowText">Xem quán đang mở</span>
+    </button>
+    <div class="on-banner">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        Đang mở lúc <strong class="onTimeDisplay" style="margin-left:4px"></strong>
+    </div>
+    <button class="btn-clear-all btnClearAll">Hủy bộ lọc + tìm kiếm</button>
+</div>
+    <div class="a-list" id="adminList"><div class="a-item"><div class="a-index">1</div>
+      <img class="a-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'">
+      <div class="a-info"><div class="a-name">Phở Gia Truyền Số 49</div><div class="a-meta">Hà Nội · <span class="badge b3">Rất ngon</span></div></div>
+      <div class="a-acts">
+        <button class="edit-btn btn-clean" onclick="window.app.edit(1)"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
+        <button class="del-btn btn-clean" onclick="window.app.del(1)"><svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+      </div></div><div class="a-item"><div class="a-index">2</div>
+      <img class="a-img" src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&amp;q=75" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'">
+      <div class="a-info"><div class="a-name">Kem Bơ Đà Lạt Thanh Thảo</div><div class="a-meta">Đà Lạt · <span class="badge b3">Rất ngon</span></div></div>
+      <div class="a-acts">
+        <button class="edit-btn btn-clean" onclick="window.app.edit(2)"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
+        <button class="del-btn btn-clean" onclick="window.app.del(2)"><svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+      </div></div></div>
+    <div class="empty" id="rEmptyAdmin">Không tìm thấy quán ăn nào 😔</div>
+    <div class="pag-row" id="pagRowAdmin"></div>
+</div>
+
+<!-- VIEW: RATINGS ADMIN -->
+<div id="ratings-view" class="view">
+    <header class="admin-head">
+        <div class="admin-row">
+            <div class="admin-title">Quản lý Đánh giá</div>
+            <div class="admin-btns">
+              <button class="icon-btn btnSearchTrigger" style="margin-right: 4px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+              </button>
+              <button class="btn-clean" id="btnBackAdmin">Quay lại</button>
+            </div>
+        </div>
+    </header>
+    <div class="a-list" id="ratingList" style="padding-top:20px; width:100%"></div>
+    <div style="padding:32px 20px; width:100%; max-width:720px">
+        <button class="btn-clean" id="btnSaveRatings">
+            Lưu tất cả thay đổi
+        </button>
+    </div>
+</div>
+
+<!-- TEMPLATE: FILTERS -->
+<template id="filterTpl">
+    <div class="fc">
+        <span class="fc-title">Thành phố</span>
+        <div class="chips cityChips">
+            <button class="chip" data-city="hanoi">Hà Nội</button>
+            <button class="chip" data-city="hcm">Hồ Chí Minh</button>
+            <button class="chip" data-city="hue">Huế</button>
+            <button class="chip" data-city="danang">Đà Nẵng</button>
+            <button class="chip" data-city="dalat">Đà Lạt</button>
+        </div>
+    </div>
+    <button class="open-now-btn btnOpenNow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        <span class="openNowText">Xem quán đang mở</span>
+    </button>
+    <div class="on-banner">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        Đang mở lúc <strong class="onTimeDisplay" style="margin-left:4px"></strong>
+    </div>
+    <button class="btn-clear-all btnClearAll">Hủy bộ lọc + tìm kiếm</button>
+</template>
+
+<!-- MODAL FORM -->
+<div class="sheet-ov" id="formOv">
+    <div class="sheet">
+        <div class="sheet-title" id="formTitle">Thêm quán mới</div>
+        <div class="fg"><label class="fl">Tên quán</label><input class="fi" id="fName" placeholder="Tên quán..."></div>
+        <div class="fg">
+            <label class="fl">Thành phố</label>
+            <select class="fi" id="fCity">
+                <option value="hanoi">Hà Nội</option><option value="hcm">Hồ Chí Minh</option>
+                <option value="hue">Huế</option><option value="danang">Đà Nẵng</option><option value="dalat">Đà Lạt</option>
+            </select>
+        </div>
+        <div class="fg"><label class="fl">Địa chỉ</label><input class="fi" id="fAddress" placeholder="Địa chỉ..."></div>
+        <div style="display:flex; gap:12px">
+            <div class="fg" style="flex:1"><label class="fl">Mở cửa</label><input class="fi" type="time" id="fOpen"></div>
+            <div class="fg" style="flex:1"><label class="fl">Đóng cửa</label><input class="fi" type="time" id="fClose"></div>
+        </div>
+        <div class="fg"><label class="fl">Đánh giá</label><select class="fi" id="fRating"></select></div>
+        <div class="fg"><label class="fl">Thông tin</label><textarea class="fi" id="fInfo" rows="3" placeholder="Mô tả..."></textarea></div>
+        <div class="fg">
+            <label class="fl">Hình ảnh</label><input type="file" id="fileInput" accept="image/*" style="display:none">
+            <button class="btn-upload" id="btnUploadTrigger"><img id="fImgPreview" class="upload-preview"><span id="uploadStatus">Bấm để tải ảnh</span></button>
+        </div>
+        <div class="sheet-btns">
+            <button class="btn-clean btn-form-cancel" id="btnCancelForm">Huỷ</button>
+            <button class="btn-clean btn-form-save" id="btnSaveForm">Lưu quán</button>
+        </div>
+    </div>
+</div>
+
+<div class="ov search-ov" id="searchOv">
+    <div class="search-box">
+        <input class="s-inp" id="searchInp" type="text" placeholder="Tìm kiếm quán ăn..." autocomplete="off">
+        <button class="x-btn" id="btnCloseSearch">✕</button>
+    </div>
+</div>
+
+<nav class="bnav" id="main-nav" style="display: flex;">
+    <button class="nb on" id="btnNavHome"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span>Trang chủ</span></button>
+    <button class="nb" id="navAccount">
+        <svg id="navIconLogin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display: block;"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+        <svg id="navIconUser" viewBox="0 0 24 24" style="display: none;"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
+        <span id="navLabel">Đăng nhập</span>
+    </button>
+</nav>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+import {
+  getAuth,
+  signInAnonymously,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+  doc,
+  setDoc,
+  deleteDoc,
+  serverTimestamp,
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+import {
+  getStorage,
+  ref as storageRef,
+  uploadString,
+  getDownloadURL,
+  deleteObject,
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-storage.js";
+
+(()=>{
+const SEED_RAT=[{label:'Rất ngon',bc:'b3'},{label:'Cũng ngon',bc:'b2'},{label:'Ăn tạm được',bc:'b1'},{label:'Không quay lại',bc:'b0'}];
+const SEED_REST=[
+  {id:1,name:'Phở Gia Truyền Số 49',city:'hanoi',rating:0,address:'49 Bát Đàn, Hoàn Kiếm, Hà Nội',info:'Phở bò Hà Nội thứ thiệt.',open:'05:30',close:'10:30',img:'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&q=75'},
+  {id:2,name:'Kem Bơ Đà Lạt Thanh Thảo',city:'dalat',rating:0,address:'45 Nguyễn Thị Minh Khai, Đà Lạt',info:'Kem bơ béo ngậy.',open:'09:00',close:'21:00',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&q=75'},
+];
+const CITIES={hanoi:'Hà Nội',hcm:'Hồ Chí Minh',hue:'Huế',danang:'Đà Nẵng',dalat:'Đà Lạt'};
+const PER=5, KEY='qn_data', KEY_RAT='qn_ratings';
+const D = {}; const $=id=>document.getElementById(id);
+const state={view:'home',cities:new Set(),page:1,adminPage:1,searchQ:'',openNowMode:false,rests:[],ratings:[],editingId:null,tempImg:''};
+
+// ===== Firestore sync (lưu quán ăn lên Firebase) =====
+// Dùng Firebase Web SDK dạng <script type="module"> (modular SDK).
+const firebaseConfig = {
+  apiKey: "AIzaSyAdxkXOHp_L-8psfEgN3_2a4AL5LpyO3lA",
+  authDomain: "tolamda.firebaseapp.com",
+  projectId: "tolamda",
+  storageBucket: "tolamda.firebasestorage.app",
+  messagingSenderId: "905852529825",
+  appId: "1:905852529825:web:e7207b8a19ef00889a94e0"
+};
+const FIRESTORE_COLLECTION = 'restaurants';
+const fb = {
+  enabled: false,
+  ready: null,
+  authReady: null,
+  _authReadyResolve: null,
+  app: null,
+  auth: null,
+  db: null,
+  storage: null,
+  user: null,
+  loadedOnce: false
+};
+const AUTH_EMAIL_DOMAIN = '@app.local';
+const ADMIN_EMAIL = 'thaild@app.local';
+
+const isAdminUser = () => !!(fb.user && !fb.user.isAnonymous && fb.user.email === ADMIN_EMAIL);
+
+const ensureAuthReady = async () => {
+  try { if (fb.ready) await fb.ready; } catch (e) {}
+  try { if (fb.authReady) await fb.authReady; } catch (e) {}
+};
+
+const initFirebase = () => {
+  try {
+    fb.app = initializeApp(firebaseConfig);
+    fb.auth = getAuth(fb.app);
+    fb.db = getFirestore(fb.app);
+    fb.storage = getStorage(fb.app);
+  } catch (e) {
+    console.warn('[Firestore] Lỗi khởi tạo Firebase:', e);
+    return Promise.resolve(null);
+  }
+
+  // Resolve khi onAuthStateChanged chạy lần đầu
+  fb.authReady = new Promise((resolve) => { fb._authReadyResolve = resolve; });
+
+  // Luôn có 1 user (ẩn danh) để đọc dữ liệu; đăng nhập email/pass chỉ để bật quyền admin.
+  onAuthStateChanged(fb.auth, async (user) => {
+    fb.user = user || null;
+    fb.enabled = !!fb.user;
+    updateAuthUI();
+
+    if (fb._authReadyResolve) { fb._authReadyResolve(true); fb._authReadyResolve = null; }
+
+    // Nếu chưa có user -> auto sign-in ẩn danh để app vẫn hoạt động
+    if (!fb.user) {
+      try { await signInAnonymously(fb.auth); } catch (err) {
+        console.warn('[Auth] Không sign-in ẩn danh được. Kiểm tra đã bật Anonymous Auth chưa.', err);
+      }
+      return;
+    }
+
+    // Khi có user (ẩn danh hoặc email), thử tải dữ liệu từ Firestore
+    await checkFirestoreConnection();
+    const remote = await fetchRestsFromFirestore();
+    if (remote && remote.length) {
+      state.rests = remote;
+      saveData(); // cache lại local để offline
+      render();
+      if (state.view === 'admin' || state.view === 'ratings') renderAdmin();
+    }
+    fb.loadedOnce = true;
+  });
+
+  return Promise.resolve(fb.db);
+};
+
+const fetchRestsFromFirestore = async () => {
+  if (!fb.enabled || !fb.db) return null;
+  try {
+    // Tối ưu: orderBy + limit để không kéo toàn bộ nếu dữ liệu lớn
+    const snap = await getDocs(query(
+      collection(fb.db, FIRESTORE_COLLECTION),
+      orderBy('id', 'desc'),
+      limit(500)
+    ));
+    const arr = [];
+    snap.forEach(d => arr.push(d.data()));
+    return arr;
+  } catch (err) {
+    console.warn('[Firestore] Lỗi khi tải dữ liệu:', err);
+    return null;
+  }
+};
+
+const checkFirestoreConnection = async () => {
+  if (!fb.enabled || !fb.db) return;
+  try {
+    // Query nhẹ để biết kết nối/rules có ok không
+    await getDocs(query(collection(fb.db, FIRESTORE_COLLECTION), limit(1)));
+  } catch (err) {
+    console.warn('[Firestore] Không truy cập được DB:', err);
+    const code = err?.code ? ` (${err.code})` : '';
+    const msg = err?.message ? `: ${err.message}` : '';
+    showSavedToast(`Không kết nối được Firestore${code}${msg}`.slice(0, 160), true);
+  }
+};
+
+const dataUrlToExt = (dataUrl) => {
+  const m = /^data:([^;]+);/i.exec(dataUrl || '');
+  const mime = (m?.[1] || '').toLowerCase();
+  if (mime.includes('png')) return 'png';
+  if (mime.includes('webp')) return 'webp';
+  if (mime.includes('gif')) return 'gif';
+  return 'jpg'; // jpeg/jpg mặc định
+};
+
+const uploadImageDataUrlToStorage = async ({ id, dataUrl, oldPath }) => {
+  await ensureAuthReady();
+  if (!fb.enabled || !fb.storage) throw new Error('Firebase chưa sẵn sàng');
+  if (!isAdminUser()) throw new Error('Bạn cần đăng nhập admin để upload ảnh');
+  const ext = dataUrlToExt(dataUrl);
+  const path = `restaurants/${id}-${Date.now()}.${ext}`;
+  const r = storageRef(fb.storage, path);
+  await uploadString(r, dataUrl, 'data_url');
+  const url = await getDownloadURL(r);
+  // Dọn ảnh cũ nếu có (best-effort)
+  if (oldPath && oldPath !== path) {
+    try { await deleteObject(storageRef(fb.storage, oldPath)); } catch (e) {}
+  }
+  return { url, path };
+};
+
+const upsertRestToFirestore = async (r) => {
+  await ensureAuthReady();
+  if (!fb.enabled || !fb.db) { showSavedToast('Firebase chưa sẵn sàng, thử lại', true); return; }
+  if (!isAdminUser()) {
+    showSavedToast('Bạn cần đăng nhập admin để lưu lên Firebase', true);
+    return;
+  }
+  try {
+    const meta = {
+      updatedAt: serverTimestamp(),
+      updatedBy: fb.user?.email || fb.user?.uid || null,
+    };
+    if (!r.createdAt) {
+      meta.createdAt = serverTimestamp();
+      meta.createdBy = fb.user?.email || fb.user?.uid || null;
+    }
+    await setDoc(doc(fb.db, FIRESTORE_COLLECTION, String(r.id)), { ...r, ...meta }, { merge: true });
+    showSavedToast('Đã lưu lên Firebase');
+  } catch (err) {
+    console.warn('[Firestore] Lỗi khi lưu quán:', err);
+    const code = err?.code ? ` (${err.code})` : '';
+    const msg = err?.message ? `: ${err.message}` : '';
+    showSavedToast(`Lưu Firebase thất bại${code}${msg}`.slice(0, 160), true);
+  }
+};
+
+const deleteRestFromFirestore = async (id, imgPath) => {
+  await ensureAuthReady();
+  if (!fb.enabled || !fb.db) { showSavedToast('Firebase chưa sẵn sàng, thử lại', true); return; }
+  if (!isAdminUser()) {
+    showSavedToast('Bạn cần đăng nhập admin để xoá trên Firebase', true);
+    return;
+  }
+  try {
+    await deleteDoc(doc(fb.db, FIRESTORE_COLLECTION, String(id)));
+    // xoá ảnh trên Storage nếu có
+    if (imgPath && fb.storage) {
+      try { await deleteObject(storageRef(fb.storage, imgPath)); } catch (e) {}
+    }
+    showSavedToast('Đã xoá trên Firebase');
+  } catch (err) {
+    console.warn('[Firestore] Lỗi khi xoá quán:', err);
+    const code = err?.code ? ` (${err.code})` : '';
+    const msg = err?.message ? `: ${err.message}` : '';
+    showSavedToast(`Xoá Firebase thất bại${code}${msg}`.slice(0, 160), true);
+  }
+};
+
+const loadData=()=>{
+  state.rests = JSON.parse(localStorage.getItem(KEY)) || structuredClone(SEED_REST);
+  state.ratings = JSON.parse(localStorage.getItem(KEY_RAT)) || structuredClone(SEED_RAT);
+};
+const saveData=()=>{
+    localStorage.setItem(KEY, JSON.stringify(state.rests));
+    localStorage.setItem(KEY_RAT, JSON.stringify(state.ratings));
+};
+loadData();
+
+const parseT=t=>{const[h,m]=t.split(':');return +h*60+ +m};
+const isOpen=r=>{
+  const n=new Date(),now=n.getHours()*60+n.getMinutes();
+  const o=parseT(r.open),c=parseT(r.close);
+  return o<c?now>=o&&now<c:now>=o||now<c;
+};
+
+const initD = () => {
+    ['lUser','lPass','loginErr','navIconLogin','navIconUser','navLabel','btnAdmin','main-nav','rList','rEmpty','pagRow','adminList','rEmptyAdmin','pagRowAdmin','ratingList','fRating','fImgPreview','uploadStatus','formTitle','formOv','fName','fCity','fAddress','fOpen','fClose','fInfo','searchOv','searchInp','btnDownload'].forEach(id => { D[id] = $(id); });
+};
+
+const normalizeLogin = (raw) => {
+  const v = (raw || '').trim();
+  if (!v) return '';
+  // Cho phép chỉ nhập "thaild" -> tự đổi thành "thaild@app.local"
+  if (!v.includes('@')) return `${v}${AUTH_EMAIL_DOMAIN}`;
+  return v;
+};
+
+const showSavedToast = (msg, isError=false) => {
+  try {
+    let el = document.getElementById('saveStatusToast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'saveStatusToast';
+      el.style.position = 'fixed';
+      el.style.left = '50%';
+      el.style.bottom = '18px';
+      el.style.transform = 'translateX(-50%)';
+      el.style.padding = '10px 12px';
+      el.style.borderRadius = '12px';
+      el.style.fontSize = '13px';
+      el.style.fontWeight = '700';
+      el.style.zIndex = '9999';
+      el.style.maxWidth = '92vw';
+      el.style.boxShadow = '0 10px 30px rgba(0,0,0,.18)';
+      document.body.appendChild(el);
+    }
+    el.style.background = isError ? '#FFF0F0' : '#E8F9EE';
+    el.style.color = isError ? '#B42318' : '#027A48';
+    el.textContent = msg;
+    el.style.display = 'block';
+    clearTimeout(showSavedToast._t);
+    showSavedToast._t = setTimeout(()=>{ el.style.display='none'; }, 2200);
+  } catch (e) {}
+};
+
+const setupFilters = (cls) => {
+    const container = document.querySelector(cls); if(!container) return;
+    container.innerHTML = '';
+    container.appendChild($('filterTpl').content.cloneNode(true));
+    container.querySelector('.cityChips').onclick = (e) => {
+        const b = e.target.closest('.chip'); if(!b) return;
+        const c = b.dataset.city;
+        state.cities.has(c) ? state.cities.delete(c) : state.cities.add(c);
+        b.setAttribute('aria-pressed', state.cities.has(c));
+        applyFilters();
+    };
+    container.querySelector('.btnOpenNow').onclick = () => {
+        state.openNowMode = !state.openNowMode;
+        if(state.openNowMode){
+          const n=new Date(), t=n.getHours()+':'+String(n.getMinutes()).padStart(2,'0');
+          document.querySelectorAll('.onTimeDisplay').forEach(el=>el.textContent=t);
+          document.querySelectorAll('.on-banner').forEach(el=>el.classList.add('on'));
+        } else document.querySelectorAll('.on-banner').forEach(el=>el.classList.remove('on'));
+        applyFilters();
+    };
+    container.querySelector('.btnClearAll').onclick = () => {
+        state.cities.clear(); state.searchQ = ''; D.searchInp.value = '';
+        document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+        applyFilters();
+    };
+};
+
+const applyFilters = () => {
+    state.page=1; state.adminPage=1; updateFilterUI();
+    state.view==='home'?render():renderAdmin();
+};
+
+const updateFilterUI = () => {
+  document.querySelectorAll('.btnOpenNow').forEach(btn => {
+    if(state.openNowMode){ btn.classList.add('is-active'); btn.querySelector('.openNowText').textContent="Hủy tìm quán đang mở"; }
+    else { btn.classList.remove('is-active'); btn.querySelector('.openNowText').textContent="Xem quán đang mở"; }
+  });
+  document.querySelectorAll('.btnClearAll').forEach(btn => {
+    if(state.cities.size===0 && !state.searchQ) btn.classList.remove('is-active');
+    else btn.classList.add('is-active');
+  });
+};
+
+const renderPagination = (tid, len, cp, setFn) => {
+    const total = Math.ceil(len / PER); const container = $(tid);
+    if(total <= 1){ container.classList.remove('on'); return; }
+    container.classList.add('on');
+    let h=''; for(let i=1;i<=total;i++) h+=`<button class="pn" ${i===cp?'aria-current="page"':''} data-page="${i}">${i}</button>`;
+    container.innerHTML=h;
+    container.onclick=(e)=>{ const b=e.target.closest('.pn'); if(!b) return; setFn(+b.dataset.page); window.scrollTo({top:0,behavior: 'smooth'}); };
+};
+
+const getFilteredData = () => {
+    let d = state.rests;
+    if(state.cities.size) d=d.filter(r=>state.cities.has(r.city));
+    if(state.searchQ) d=d.filter(r=>r.name.toLowerCase().includes(state.searchQ.toLowerCase()) || (r.address && r.address.toLowerCase().includes(state.searchQ.toLowerCase())));
+    if(state.openNowMode) d=d.filter(isOpen);
+    return d;
+};
+
+const render=()=>{
+  const d=getFilteredData(), items=d.slice((state.page-1)*PER, state.page*PER);
+  D.rEmpty.classList.toggle('on', items.length===0);
+  D.rList.innerHTML = items.map((r,i)=>{
+    const b=state.ratings[r.rating]||state.ratings[0], op=isOpen(r);
+    return `<div class="r-item"><div class="r-index">${(state.page-1)*PER+i+1}</div>
+      <div class="img-wrap"><img src="${r.img}" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'"></div>
+      <div class="r-content"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="r-name">${r.name}</div><span class="badge ${b.bc}">${b.label}</span></div>
+        <div class="r-hours"><div class="hdot ${op?'op':'cl'}"></div><span style="color:${op?'var(--green-dark)':'var(--text-light)'}">${op?'Đang mở':'Đã đóng'} · ${r.open} - ${r.close}</span></div>
+        <div style="font-size:13px;color:var(--rose-dark);font-weight:700;margin-top:2px">📍 ${r.address||'Chưa có địa chỉ...'}</div>
+        <div style="font-size:13px;color:var(--text-mid);margin-top:2px">${r.info||''}</div></div></div>`;
+  }).join('');
+  renderPagination('pagRow', d.length, state.page, p=>{state.page=p;render();});
+};
+
+const renderAdmin=()=>{
+  const d=getFilteredData(), items=d.slice((state.adminPage-1)*PER, state.adminPage*PER);
+  D.rEmptyAdmin.classList.toggle('on', items.length===0);
+  D.adminList.innerHTML = items.map((r,i)=>{
+    const b=state.ratings[r.rating]||state.ratings[0];
+    return `<div class="a-item"><div class="a-index">${(state.adminPage-1)*PER+i+1}</div>
+      <img class="a-img" src="${r.img}" onerror="this.src='https://images.unsplash.com/photo-1555126634-323283e090fa?w=300'">
+      <div class="a-info"><div class="a-name">${r.name}</div><div class="a-meta">${CITIES[r.city]} · <span class="badge ${b.bc}">${b.label}</span></div></div>
+      <div class="a-acts">
+        <button class="edit-btn btn-clean" data-act="edit" data-id="${r.id}" aria-label="Sửa"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+        <button class="del-btn btn-clean" data-act="del" data-id="${r.id}" aria-label="Xoá"><svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+      </div></div>`;
+  }).join('');
+  renderPagination('pagRowAdmin', d.length, state.adminPage, p=>{state.adminPage=p;renderAdmin();});
+};
+
+const renderRatingsAdmin = () => {
+    D.ratingList.innerHTML = state.ratings.map((r, i) => {
+        const bgMap = { b3: '#E8F9EE', b2: '#F0FBF4', b1: '#FFF8EE', b0: '#FFF0F0' };
+        return `<div class="a-item" style="padding:16px"><div class="a-index">${i+1}</div>
+            <div class="fg" style="flex:1;margin:0"><input class="fi rating-label-input" id="rat-input-${i}" data-index="${i}" value="${r.label}" disabled 
+                       style="border-radius:12px;font-weight:700;background:${bgMap[r.bc]};color:${r.bc==='b3'?'var(--green-dark)':r.bc==='b2'?'var(--green)':r.bc==='b1'?'var(--text-mid)':'var(--red)'}"></div>
+            <button class="edit-rat-btn btn-clean" onclick="window.app.editRatLabel(${i})">Sửa</button><span class="badge ${r.bc}">Xem trước</span></div>`
+    }).join('');
+};
+
+const switchView = (v) => {
+    state.view=v; document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+    $(`${v}-view`).classList.add('active'); D['main-nav'].style.display=v==='login'?'none':'flex';
+    document.querySelectorAll('.nb').forEach(n=>n.classList.remove('on'));
+    if(v==='home')$('btnNavHome').classList.add('on'); else if(v==='admin'||v==='ratings')$('navAccount').classList.add('on');
+    if(v==='home')render(); if(v==='admin')renderAdmin(); if(v==='ratings')renderRatingsAdmin();
+    updateAuthUI();
+};
+
+const updateAuthUI=()=>{
+  const loggedIn = isAdminUser();
+  D.navIconLogin.style.display=loggedIn?'none':'block'; D.navIconUser.style.display=loggedIn?'block':'none';
+  // Khi đã đăng nhập thì nút này dùng để đăng xuất
+  D.navLabel.textContent=loggedIn?'Đăng xuất':'Đăng nhập';
+  D.btnAdmin.classList.toggle('on',loggedIn);
+};
+
+const downloadApp = () => {
+  D.btnDownload.style.display = 'none';
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const b = new Blob([html], { type: 'text/html' }); const u = URL.createObjectURL(b);
+  const a = document.createElement('a'); a.href = u; a.download = 'to-lam-da.html';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(u);
+};
+
+window.onload = () => {
+    initD(); setupFilters('.shared-filters'); setupFilters('.shared-filters-admin');
+    // Prefill email theo user bạn đã tạo (không lưu mật khẩu)
+    try { if (D.lUser && !D.lUser.value) D.lUser.value = 'thaild'; } catch (e) {}
+
+    $('navAccount').onclick=async ()=>{
+      if (isAdminUser()) {
+        try { await signOut(fb.auth); } catch (e) {}
+        switchView('home');
+      } else {
+        switchView('login');
+      }
+    };
+
+    $('btnDoLogin').onclick=async ()=>{
+      const email=normalizeLogin(D.lUser.value);
+      const pass=D.lPass.value;
+      D.loginErr.classList.remove('on');
+      if(!email || !pass){ D.loginErr.classList.add('on'); return; }
+      try{
+        await signInWithEmailAndPassword(fb.auth, email, pass);
+        D.lPass.value='';
+        switchView('home');
+      }catch(err){
+        console.warn('[Auth] Đăng nhập thất bại:', err);
+        D.loginErr.classList.add('on');
+        D.lPass.value='';
+      }
+    };
+    D.lPass.onkeydown=e=>{if(e.key==='Enter')$('btnDoLogin').click()};
+    $('btnAdmin').onclick=()=>switchView('admin'); $('btnNavHome').onclick=()=>switchView('home');
+    $('btnBackHome').onclick=()=>switchView('home'); $('btnGoRatings').onclick=()=>switchView('ratings');
+    $('btnBackAdmin').onclick=()=>switchView('admin');
+
+    // Event delegation cho danh sách quản lý (tránh phụ thuộc inline onclick – đôi khi bị chặn bởi CSP)
+    D.adminList.onclick = async (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      const act = btn.dataset.act;
+      const id = +(btn.dataset.id || 0);
+      if (!act || !id) return;
+      if (act === 'edit') return window.app.edit(id);
+      if (act === 'del') return window.app.del(id);
+    };
+
+    $('btnSaveRatings').onclick=()=>{ document.querySelectorAll('.rating-label-input').forEach(inp=>{state.ratings[+inp.dataset.index].label=inp.value.trim()||'Trống';}); saveData(); switchView('admin'); };
+    document.querySelectorAll('.btnSearchTrigger').forEach(btn=>btn.onclick=()=>{D.searchOv.classList.add('on');setTimeout(()=>D.searchInp.focus(),100);});
+    $('btnCloseSearch').onclick=()=>D.searchOv.classList.remove('on');
+    D.searchInp.onkeydown=e=>{if(e.key==='Enter'){state.searchQ=D.searchInp.value.trim();D.searchOv.classList.remove('on');applyFilters();}};
+    $('btnAddRest').onclick=()=>window.app.openForm(); $('btnCancelForm').onclick=()=>D.formOv.classList.remove('on');
+    $('btnSaveForm').onclick=async ()=>{
+      const btn = $('btnSaveForm');
+      const prevText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Đang lưu...';
+      const r={name:D.fName.value.trim()||'Quán chưa đặt tên',city:D.fCity.value,address:D.fAddress.value.trim(),open:D.fOpen.value,close:D.fClose.value,rating:+D.fRating.value,img:state.tempImg||'https://images.unsplash.com/photo-1555126634-323283e090fa?w=300',info:D.fInfo.value.trim()};
+      let saved;
+      if(state.editingId){
+        const idx=state.rests.findIndex(x=>x.id===state.editingId);
+        state.rests[idx]={...state.rests[idx],...r};
+        saved = state.rests[idx];
+      } else {
+        r.id=Date.now();
+        state.rests.unshift(r);
+        saved = r;
+      }
+      try {
+        // Upload ảnh lên Storage nếu ảnh là dataURL (từ upload file)
+        if (typeof state.tempImg === 'string' && state.tempImg.startsWith('data:')) {
+          const uploaded = await uploadImageDataUrlToStorage({ id: saved.id, dataUrl: state.tempImg, oldPath: saved.imgPath });
+          saved.img = uploaded.url;
+          saved.imgPath = uploaded.path;
+          state.tempImg = uploaded.url; // để UI hiện URL
+        }
+        saveData();
+        D.formOv.classList.remove('on');
+        renderAdmin();
+        await upsertRestToFirestore(saved);
+      } catch (err) {
+        console.warn('[Storage/Firestore] Lỗi khi lưu:', err);
+        showSavedToast(`Lưu thất bại: ${err?.message || 'Unknown error'}`.slice(0, 160), true);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = prevText;
+      }
+    };
+    $('btnUploadTrigger').onclick=()=>$('fileInput').click();
+    $('fileInput').onchange=e=>{ const f=e.target.files[0]; if(f){const rd=new FileReader(); rd.onload=ev=>{state.tempImg=ev.target.result; D.fImgPreview.src=ev.target.result; D.fImgPreview.style.display='block'; D.uploadStatus.textContent='Thay đổi ảnh';}; rd.readAsDataURL(f);}};
+    D.btnDownload.onclick=downloadApp; render(); updateFilterUI();
+
+    // Khởi tạo Firebase/Auth/Firestore (tự sign-in ẩn danh để đọc dữ liệu)
+    fb.ready = initFirebase();
+};
+
+window.app = {
+    edit: id => window.app.openForm(id),
+    del: async (id) => {
+      if(!confirm("Xoá quán này?")) return;
+      const r = state.rests.find(x=>x.id===id);
+      state.rests=state.rests.filter(x=>x.id!==id);
+      saveData();
+      renderAdmin();
+      await deleteRestFromFirestore(id, r?.imgPath);
+    },
+    editRatLabel: i => { const inp=$(`rat-input-${i}`); inp.disabled=false; inp.focus(); inp.style.background='#fff'; },
+    openForm: id => {
+        state.editingId=id; state.tempImg=''; D.fRating.innerHTML=state.ratings.map((r,i)=>`<option value="${i}">${r.label}</option>`).join('');
+        if(id){ const r=state.rests.find(x=>x.id===id); D.fName.value=r.name; D.fCity.value=r.city; D.fAddress.value=r.address; D.fOpen.value=r.open; D.fClose.value=r.close; D.fRating.value=r.rating; D.fInfo.value=r.info; state.tempImg=r.img; D.formTitle.textContent="Cập nhật quán"; }
+        else { D.fName.value=''; D.fAddress.value=''; D.fOpen.value='08:00'; D.fClose.value='22:00'; D.fInfo.value=''; D.formTitle.textContent="Thêm quán mới"; }
+        if(state.tempImg){D.fImgPreview.src=state.tempImg; D.fImgPreview.style.display='block'; D.uploadStatus.textContent='Thay đổi ảnh';} else {D.fImgPreview.style.display='none'; D.uploadStatus.textContent='Bấm để tải ảnh';}
+        D.formOv.classList.add('on');
+    }
+};
+})();
+</script>
+
+</body></html>
