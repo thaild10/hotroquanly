@@ -1151,23 +1151,16 @@ const initFirebase = () => {
   // Resolve khi onAuthStateChanged chạy lần đầu
   fb.authReady = new Promise((resolve) => { fb._authReadyResolve = resolve; });
 
-  // Luôn có 1 user (ẩn danh) để đọc dữ liệu; đăng nhập email/pass chỉ để bật quyền admin.
+  // Đăng nhập email/pass chỉ để bật quyền admin.
+  // Dữ liệu danh sách quán có thể cho phép đọc công khai (public read) → không phụ thuộc đăng nhập.
   onAuthStateChanged(fb.auth, async (user) => {
     fb.user = user || null;
-    fb.enabled = !!fb.user;
+    fb.enabled = true; // app/firebase đã init; read có thể không cần auth
     updateAuthUI();
 
     if (fb._authReadyResolve) { fb._authReadyResolve(true); fb._authReadyResolve = null; }
 
-    // Nếu chưa có user -> auto sign-in ẩn danh để app vẫn hoạt động
-    if (!fb.user) {
-      try { await signInAnonymously(fb.auth); } catch (err) {
-        console.warn('[Auth] Không sign-in ẩn danh được. Kiểm tra đã bật Anonymous Auth chưa.', err);
-      }
-      return;
-    }
-
-    // Khi có user (ẩn danh hoặc email), thử tải dữ liệu từ Firestore
+    // Khi auth state thay đổi (đặc biệt sau khi login admin), thử tải dữ liệu từ Firestore
     await checkFirestoreConnection();
     const remote = await fetchRestsFromFirestore();
     if (remote && remote.length) {
@@ -1179,11 +1172,22 @@ const initFirebase = () => {
     fb.loadedOnce = true;
   });
 
+  // Lần đầu mở app: tải dữ liệu từ Firestore ngay cả khi chưa đăng nhập
+  (async () => {
+    await checkFirestoreConnection();
+    const remote = await fetchRestsFromFirestore();
+    if (remote && remote.length) {
+      state.rests = remote;
+      saveData();
+      render();
+    }
+  })();
+
   return Promise.resolve(fb.db);
 };
 
 const fetchRestsFromFirestore = async () => {
-  if (!fb.enabled || !fb.db) return null;
+  if (!fb.db) return null;
   try {
     // Tối ưu: orderBy + limit để không kéo toàn bộ nếu dữ liệu lớn
     const snap = await getDocs(query(
@@ -1201,7 +1205,7 @@ const fetchRestsFromFirestore = async () => {
 };
 
 const checkFirestoreConnection = async () => {
-  if (!fb.enabled || !fb.db) return;
+  if (!fb.db) return;
   try {
     // Query nhẹ để biết kết nối/rules có ok không
     await getDocs(query(collection(fb.db, FIRESTORE_COLLECTION), limit(1)));
