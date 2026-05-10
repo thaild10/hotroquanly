@@ -1102,7 +1102,7 @@ const SEED_REST=[
 const CITIES={hanoi:'Hà Nội',hcm:'Hồ Chí Minh',hue:'Huế',danang:'Đà Nẵng',dalat:'Đà Lạt'};
 const PER=5, KEY='qn_data', KEY_RAT='qn_ratings';
 const D = {}; const $=id=>document.getElementById(id);
-const state={view:'home',cities:new Set(),page:1,adminPage:1,searchQ:'',openNowMode:false,rests:[],ratings:[],editingId:null,tempImg:''};
+const state={view:'home',cities:new Set(),page:1,adminPage:1,searchQ:'',openNowMode:false,rests:[],_localRests:[],ratings:[],editingId:null,tempImg:'',loading:true};
 
 // ===== Firestore sync (lưu quán ăn lên Firebase) =====
 // Dùng Firebase Web SDK dạng <script type="module"> (modular SDK).
@@ -1160,15 +1160,21 @@ const initFirebase = () => {
 
     if (fb._authReadyResolve) { fb._authReadyResolve(true); fb._authReadyResolve = null; }
 
-    // Khi auth state thay đổi (đặc biệt sau khi login admin), thử tải dữ liệu từ Firestore
+    // Khi auth state thay đổi (đặc biệt sau khi login admin), tải dữ liệu từ Firestore
     await checkFirestoreConnection();
     const remote = await fetchRestsFromFirestore();
     // Nếu đọc Firestore thành công (kể cả rỗng) thì lấy Firestore làm nguồn dữ liệu chuẩn
     if (remote !== null) {
       state.rests = remote;
       saveData(); // cache lại local để offline
+      state.loading = false;
       render();
       if (state.view === 'admin' || state.view === 'ratings') renderAdmin();
+    } else {
+      // fallback nếu Firestore lỗi
+      state.rests = state._localRests || [];
+      state.loading = false;
+      render();
     }
     fb.loadedOnce = true;
   });
@@ -1180,6 +1186,11 @@ const initFirebase = () => {
     if (remote !== null) {
       state.rests = remote;
       saveData();
+      state.loading = false;
+      render();
+    } else {
+      state.rests = state._localRests || [];
+      state.loading = false;
       render();
     }
   })();
@@ -1292,9 +1303,11 @@ const deleteRestFromFirestore = async (id, imgPath) => {
 };
 
 const loadData=()=>{
-  // Không tự seed dữ liệu mẫu nữa (tránh hiện lại 2 quán demo khi bạn đã xoá trên Firestore).
-  // Nếu localStorage trống thì mặc định là danh sách rỗng.
-  state.rests = JSON.parse(localStorage.getItem(KEY)) || [];
+  // Không hiển thị localStorage ngay lúc mở app để tránh “nhấp nháy”
+  // (ví dụ: hiện dữ liệu cũ -> rỗng -> dữ liệu mới từ Firestore).
+  // Chỉ dùng localStorage làm fallback nếu Firestore không tải được.
+  state._localRests = JSON.parse(localStorage.getItem(KEY)) || [];
+  state.rests = [];
   state.ratings = JSON.parse(localStorage.getItem(KEY_RAT)) || structuredClone(SEED_RAT);
 };
 const saveData=()=>{
@@ -1411,6 +1424,16 @@ const getFilteredData = () => {
 };
 
 const render=()=>{
+  if (state.loading) {
+    D.rEmpty.textContent = 'Đang tải dữ liệu...';
+    D.rEmpty.classList.add('on');
+    D.rList.innerHTML = '';
+    $('pagRow').classList.remove('on');
+    return;
+  } else {
+    // trả text về mặc định
+    if (D.rEmpty.textContent !== 'Không tìm thấy quán ăn nào 😔') D.rEmpty.textContent = 'Không tìm thấy quán ăn nào 😔';
+  }
   const d=getFilteredData(), items=d.slice((state.page-1)*PER, state.page*PER);
   D.rEmpty.classList.toggle('on', items.length===0);
   D.rList.innerHTML = items.map((r,i)=>{
@@ -1426,6 +1449,15 @@ const render=()=>{
 };
 
 const renderAdmin=()=>{
+  if (state.loading) {
+    D.rEmptyAdmin.textContent = 'Đang tải dữ liệu...';
+    D.rEmptyAdmin.classList.add('on');
+    D.adminList.innerHTML = '';
+    $('pagRowAdmin').classList.remove('on');
+    return;
+  } else {
+    if (D.rEmptyAdmin.textContent !== 'Không tìm thấy quán ăn nào 😔') D.rEmptyAdmin.textContent = 'Không tìm thấy quán ăn nào 😔';
+  }
   const d=getFilteredData(), items=d.slice((state.adminPage-1)*PER, state.adminPage*PER);
   D.rEmptyAdmin.classList.toggle('on', items.length===0);
   D.adminList.innerHTML = items.map((r,i)=>{
