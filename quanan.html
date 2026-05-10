@@ -1163,7 +1163,8 @@ const initFirebase = () => {
     // Khi auth state thay đổi (đặc biệt sau khi login admin), thử tải dữ liệu từ Firestore
     await checkFirestoreConnection();
     const remote = await fetchRestsFromFirestore();
-    if (remote && remote.length) {
+    // Nếu đọc Firestore thành công (kể cả rỗng) thì lấy Firestore làm nguồn dữ liệu chuẩn
+    if (remote !== null) {
       state.rests = remote;
       saveData(); // cache lại local để offline
       render();
@@ -1176,7 +1177,7 @@ const initFirebase = () => {
   (async () => {
     await checkFirestoreConnection();
     const remote = await fetchRestsFromFirestore();
-    if (remote && remote.length) {
+    if (remote !== null) {
       state.rests = remote;
       saveData();
       render();
@@ -1291,7 +1292,9 @@ const deleteRestFromFirestore = async (id, imgPath) => {
 };
 
 const loadData=()=>{
-  state.rests = JSON.parse(localStorage.getItem(KEY)) || structuredClone(SEED_REST);
+  // Không tự seed dữ liệu mẫu nữa (tránh hiện lại 2 quán demo khi bạn đã xoá trên Firestore).
+  // Nếu localStorage trống thì mặc định là danh sách rỗng.
+  state.rests = JSON.parse(localStorage.getItem(KEY)) || [];
   state.ratings = JSON.parse(localStorage.getItem(KEY_RAT)) || structuredClone(SEED_RAT);
 };
 const saveData=()=>{
