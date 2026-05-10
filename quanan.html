@@ -1137,41 +1137,7 @@ const initFirebase = () => {
     updateAuthUI();
 
     if (fb._authReadyResolve) { fb._authReadyResolve(true); fb._authReadyResolve = null; }
-
-    // Khi auth state thay đổi (đặc biệt sau khi login admin), tải dữ liệu từ Firestore
-    await checkFirestoreConnection();
-    const remote = await fetchRestsFromFirestore();
-    // Nếu đọc Firestore thành công (kể cả rỗng) thì lấy Firestore làm nguồn dữ liệu chuẩn
-    if (remote !== null) {
-      state.rests = remote;
-      saveData(); // cache lại local để offline
-      state.loading = false;
-      render();
-      if (state.view === 'admin' || state.view === 'ratings') renderAdmin();
-    } else {
-      // fallback nếu Firestore lỗi
-      state.rests = state._localRests || [];
-      state.loading = false;
-      render();
-    }
-    fb.loadedOnce = true;
   });
-
-  // Lần đầu mở app: tải dữ liệu từ Firestore ngay cả khi chưa đăng nhập
-  (async () => {
-    await checkFirestoreConnection();
-    const remote = await fetchRestsFromFirestore();
-    if (remote !== null) {
-      state.rests = remote;
-      saveData();
-      state.loading = false;
-      render();
-    } else {
-      state.rests = state._localRests || [];
-      state.loading = false;
-      render();
-    }
-  })();
 
   return Promise.resolve(fb.db);
 };
@@ -1179,14 +1145,12 @@ const initFirebase = () => {
 const fetchRestsFromFirestore = async () => {
   if (!fb.db) return null;
   try {
-    // Tối ưu: orderBy + limit để không kéo toàn bộ nếu dữ liệu lớn
-    const snap = await getDocs(query(
-      collection(fb.db, FIRESTORE_COLLECTION),
-      orderBy('id', 'desc'),
-      limit(500)
-    ));
+    // Tối ưu: chỉ lấy tối đa 500 quán (tránh tải quá nhiều)
+    const snap = await getDocs(query(collection(fb.db, FIRESTORE_COLLECTION), limit(500)));
     const arr = [];
     snap.forEach(d => arr.push(d.data()));
+    // sort phía client để không phụ thuộc index/orderBy
+    arr.sort((a,b)=>(+b.id||0)-(+a.id||0));
     return arr;
   } catch (err) {
     console.warn('[Firestore] Lỗi khi tải dữ liệu:', err);
@@ -1194,17 +1158,37 @@ const fetchRestsFromFirestore = async () => {
   }
 };
 
-const checkFirestoreConnection = async () => {
-  if (!fb.db) return;
-  try {
-    // Query nhẹ để biết kết nối/rules có ok không
-    await getDocs(query(collection(fb.db, FIRESTORE_COLLECTION), limit(1)));
-  } catch (err) {
-    console.warn('[Firestore] Không truy cập được DB:', err);
-    const code = err?.code ? ` (${err.code})` : '';
-    const msg = err?.message ? `: ${err.message}` : '';
-    showSavedToast(`Không kết nối được Firestore${code}${msg}`.slice(0, 160), true);
-  }
+const loadRestsFromFirestore = async ({ silent = false } = {}) => {
+  await ensureAuthReady();
+  if (!fb.db) return null;
+  // chống gọi lặp song song (giảm thời gian load và nhấp nháy)
+  if (fb._loadPromise) return fb._loadPromise;
+
+  state.loading = true;
+  render();
+  if (state.view === 'admin' || state.view === 'ratings') renderAdmin();
+
+  fb._loadPromise = (async () => {
+    try {
+      const remote = await fetchRestsFromFirestore();
+      if (remote !== null) {
+        state.rests = remote;
+        saveData();
+      } else {
+        state.rests = state._localRests || [];
+        if (!silent) showSavedToast('Không tải được dữ liệu từ Firebase', true);
+      }
+      fb.loadedOnce = true;
+      return remote;
+    } finally {
+      state.loading = false;
+      render();
+      if (state.view === 'admin' || state.view === 'ratings') renderAdmin();
+      fb._loadPromise = null;
+    }
+  })();
+
+  return fb._loadPromise;
 };
 
 const dataUrlToExt = (dataUrl) => {
@@ -1605,6 +1589,8 @@ window.onload = () => {
 
     // Khởi tạo Firebase/Auth/Firestore (tự sign-in ẩn danh để đọc dữ liệu)
     fb.ready = initFirebase();
+    // Tải danh sách quán từ Firestore ngay khi mở app (không cần đăng nhập)
+    loadRestsFromFirestore({ silent: true });
 };
 
 window.app = {
